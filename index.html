@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.12.0/build/cssreset/cssreset-min.css">
+	<link rel=stylesheet type="text/css" href="css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+	<title>selector cheat sheet</title>
+</head>
+<body>
+<div class="container">
+    <h1>selector cheat sheet</h1>
+    <h2>前提条件</h2>
+    <p>
+        <ul>
+            <li>表中の "a", "b" は要素を表す。セレクタによっては"a"がアンカー&lt;a&gt;の意味と解釈できる場合があるが、あくまでも代理の文字。</li>
+            <li>チートシート作者が覚えにくいと思っているセレクタのみ。すべてのセレクタを網羅しているわけではない。</li>
+            <li>赤文字部分が各セレクタの特徴的な記述部分。</li>
+        </ul>
+    </p>
+    <h2>汎用セレクタ</h2>
+    <table id="selectorCheat">
+        <tr>
+            <th>selector</th>
+            <th>name</th>
+            <th>description</th>
+            <th>browser</th>
+        </tr>
+        <tr>
+            <td>a <span class="highlight">></span> b</td>
+            <td>子セレクタ</td>
+            <td>aの要素の直下にbの要素があった場合選択される。</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>a <span class="highlight">+</span> b</td>
+            <td>隣接セレクタ</td>
+            <td>aの要素の次に出現する要素を選択する。</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>a <span class="highlight">*</span></td>
+            <td>ユニバーサルセレクタ</td>
+            <td>*単体で全ての要素を選択。要素名 (スペース) * とすることで要素名で指定した要素内の全ての要素を選択する。</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>a <span class="highlight">~</span> b</td>
+            <td>間接セレクタ</td>
+            <td>aの要素以降に出現する要素を選択する。</td>
+            <td></td>
+        </tr>
+    </table>
+
+    <h2>擬似クラス</h2>
+    <table>
+        <tr>
+            <th>selector</th>
+            <th>name</th>
+            <th>description</th>
+            <th>browser</th>
+        </tr>
+        <tr>
+            <td>a<span class="highlight">:first-child</span></td>
+            <td>first-child擬似クラス</td>
+            <td>複数あるaの要素の最初の要素を選択。aを含む親要素が複数ある場合、各親要素の中の最初に表示されるaが選択される。</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>a<span class="highlight">:not(b)</span></td>
+            <td>否定擬似クラス</td>
+            <td>複数あるa要素の中から除外対象を:not()の括弧内に記述。括弧で指定された要素b以外を選択する。</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>a<span class="highlight">:empty</span></td>
+            <td>empty擬似クラス</td>
+            <td>子要素やテキストを含まないa要素を選択。</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>a<span class="highlight">:nth-child(num)</span></td>
+            <td>nth-child擬似クラス</td>
+            <td>複数あるa要素から任意の番号の要素を選択する。番号は括弧内に記述。カウントは1から。</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>a<span class="highlight">:last-child</span></td>
+            <td>last-child擬似クラス</td>
+            <td>複数あるa要素から、その要素の最後の要素を選択する。</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>a b<span class="highlight">:only-child</span></td>
+            <td>only-child擬似クラス</td>
+            <td>aの要素内にb要素が1つだけ含まれる場合にb要素を選択する。</td>
+            <td></td>
+        </tr>
+    </table>
+
+    <h2>属性セレクタ</h2>
+    <table>
+        <tr>
+            <th>selector</th>
+            <th>name</th>
+            <th>description</th>
+            <th>browser</th>
+        </tr>
+        <tr>
+            <td><span class="highlight">[attribute]</span></td>
+            <td>-</td>
+            <td>attributeで指定した属性([ ]で指定した属性)を持つ要素を選択する。</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><span class="highlight">[attribute='value']</span></td>
+            <td>-</td>
+            <td>attributeで指定した属性がvalueで指定する値を持つ場合に選択。</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><span class="highlight">[attribute!='value']</span></td>
+            <td>-</td>
+            <td>attributeで指定した属性がvalueで指定する値を持たない要素を選択する。</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><span class="highlight">[attribute^='value']</span></td>
+            <td>-</td>
+            <td>attributeで指定した属性がvalueで指定する文字列で始まっている要素を選択する。</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><span class="highlight">[attribute$='value']</span></td>
+            <td>-</td>
+            <td>attributeで指定した属性がvalueで指定する文字列で終わっている要素を選択する。</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><span class="highlight">[attribute*='value']</span></td>
+            <td>-</td>
+            <td>attributeで指定した属性がvalueで指定する文字列を含んでいる要素を選択する。</td>
+            <td></td>
+        </tr>
+    </table>
+    <p>
+        属性一覧は下記リンクから確認。<br>
+        <a href="https://developer.mozilla.org/ja/docs/Web/HTML/Attributes" target="_blank">属性 (HTML) - HTML | MDN</a>
+    </p>
+
+    <h2>jQuery独自フィルター</h2>
+    <table>
+        <tr>
+            <th>selector</th>
+            <th>name</th>
+            <th>description</th>
+            <th>browser</th>
+        </tr>
+        <tr>
+            <td>a<span class="highlight">:first</span></td>
+            <td>firstフィルター</td>
+            <td>a要素の1番目の要素のみ選択。</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>a<span class="highlight">:last</span></td>
+            <td>lastフィルター</td>
+            <td>a要素の最後の要素のみ選択。</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>a<span class="highlight">:even</span></td>
+            <td>evenフィルター</td>
+            <td>a要素の偶数番目の要素を選択。</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>a<span class="highlight">:odd</span></td>
+            <td>oddフィルター</td>
+            <td>a要素の奇数番目の要素を選択。</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>a<span class="highlight">:eq(num)</span></td>
+            <td>eqフィルター</td>
+            <td>(num)で指定された順番のa要素を選択する。(num)は0からカウントする。</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>a<span class="highlight">:gt(num)</span></td>
+            <td>gtフィルター</td>
+            <td>(num)で指定された数字以上の順番のa要素を選択する。(num)は0からカウントする。</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>a<span class="highlight">:lt(num)</span></td>
+            <td>ltフィルター</td>
+            <td>(num)で指定された数字以下の順番のa要素を選択する。(num)は0からカウントする。</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>a<span class="highlight">:header</span></td>
+            <td>headerフィルター</td>
+            <td>aにIdやClassを指定するとそのId,Class内のh1～h6を選択する。</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>a<span class="highlight">:contains(str)</span></td>
+            <td>containsフィルター</td>
+            <td>(str)で指定した文字列を含むa要素を選択。</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>a<span class="highlight">:has(b)</span></td>
+            <td>hasフィルター</td>
+            <td>(b)で指定した要素を文字列を含むa要素を選択。</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>a<span class="highlight">:parent</span></td>
+            <td>parentフィルター</td>
+            <td>何らかの子要素やテキストを含むa要素を選択。</td>
+            <td></td>
+        </tr>
+    </table>
+</div>
+<script>
+$(function () {
+    $('tr').hover(
+        function() {
+            $(this).addClass("hovered")
+        },
+        function() {
+            $(this).removeClass("hovered")
+        }
+    );
+});
+</script>
+</body>
+</html>
